@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -45,7 +46,7 @@ class _PrimeiraPaginaState extends State<PrimeiraPagina> {
           return Card(
             margin: const EdgeInsets.all(10),
             child: ListTile(
-              title: Text(nomes[index]),
+              title: Text('${index + 1} - ${nomes[index]}'),
             ),
           );
         },
@@ -73,6 +74,8 @@ class SegundaPagina extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey();
   final TextEditingController _controller = TextEditingController();
 
+  SegundaPagina({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +89,10 @@ class SegundaPagina extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const Text(
+                'Informe a tarefa abaixo: ', 
+                style: TextStyle(fontSize: 18),
+                ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextFormField(
