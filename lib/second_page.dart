@@ -18,6 +18,11 @@ class _SegundaPaginaState extends State<SegundaPagina> {
   void initState() {
     // ignore: deprecated_member_use
     ref = database.reference();
+    ref.onValue.listen((event) {
+      if (event.snapshot.value == null) {
+        return;
+      }
+    });
     super.initState();
   }
 
